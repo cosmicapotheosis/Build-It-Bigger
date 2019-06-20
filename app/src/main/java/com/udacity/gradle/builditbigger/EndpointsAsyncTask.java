@@ -10,10 +10,8 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
-//class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
 class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     private static MyApi myApiService = null;
-//    private Context context;
 
     @Override
     protected String doInBackground(Void... params) {
@@ -35,20 +33,16 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
             myApiService = builder.build();
         }
 
-//        context = params[0];
-
         try {
             return myApiService.tellJoke().execute().getData();
         } catch (IOException e) {
             return e.getMessage();
         }
+
     }
 
     @Override
     protected void onPostExecute(String result) {
-//        Intent intent = new Intent(context, JokeActivity.class);
-//        intent.putExtra("joke", result);
-//        context.startActivity(intent);
         super.onPostExecute(result);
     }
 }
